@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CrossoverShoppingCart.Models.CartViewModels>
+@{
+    ViewBag.Title = "Crossover Cart Details Page";   
+    var pageLocHome = "Cart/Index/";
+    var pageLocCheckPayment = "Cart/ProceedPayment/";
+
+    var pageLocInstantAdd = "Cart/InstantAdd/";
+    var pageLocInstantDelete = "Cart/InstantDelete/"; 
+}
+
+<div class="jumbotron">
+    <h1>Crossover E-commerce</h1>
+    <p class="lead">The ways you mean, the ways we have.</p>
+    <p>
+        <a href="~/@pageLocCheckPayment" class="btn btn-primary btn-success">Proceed To CheckOut &raquo;</a>
+        <a href="~/@pageLocHome" class="btn btn-primary btn-large">Continue Shopping &raquo;</a>
+    </p>
+</div>
+
+<div class="row">
+        <div class="col-md-2">
+            <p> &nbsp;</p>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalPrice)
+                    </th>
+                    <th></th>
+                </tr>               
+                @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    =
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>                    
+                    @{
+                   var linkId = new Random(item.ProductID).Next(100) + item.ProductID;
+                   var linkId2 = linkId++;
+                    }
+                    <a href="~/@pageLocInstantAdd@item.ProductID" id="aclink_@linkId" class="btn btn-default">(+)</a>
+                    <a href="~/@pageLocInstantDelete@item.ProductID" id="aclink_@linkId2"  class="btn btn-default">(-)</a>
+                </td>
+            </tr>
+        }
+                <tr>
+                    <th>
+                        -------
+                    </th>
+                    <th>
+                        -------
+                    </th>
+                    <th>
+                        Total Amount
+                    </th>
+                    <th>
+                        =
+                    </th>
+                    <th>
+                        $ @ViewBag.TotalPrice
+                    </th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <p>Please verify your items and proceed for payment process.</p>
+            <p>All the products are upto availability. The delivery will be faster and withing x- days</p>
+        </div>
+        <div class="col-md-4">
+            <p>
+                <a href="~/@pageLocCheckPayment" class="btn btn-primary btn-success">Proceed To CheckOut &raquo;</a>
+                <a href="~/@pageLocHome" class="btn btn-primary btn-large">Continue Shopping &raquo;</a>
+            </p>
+        </div>
+    </div>

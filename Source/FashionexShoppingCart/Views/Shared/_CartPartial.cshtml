@@ -1,0 +1,16 @@
+﻿@{
+    var cartCount = 0;
+}
+@if (Request.IsAuthenticated)
+{
+    <li>@Html.ActionLink("Shopping Cart", "CheckoutDetails", "Cart", routeValues: null, htmlAttributes: new { id = "viewCartLink" })</li>
+    <li>@Html.ActionLink("Checkout", "CheckoutDetails", "Cart", routeValues: null, htmlAttributes: new { id = "viewCartLink" })</li>
+    <li>@Html.ActionLink("Order History", "OrderHistory", "Cart", routeValues: null, htmlAttributes: new { id = "viewCartLink" })</li>
+}
+else
+{
+    <li>@Html.ActionLink("Shopping Cart", "CheckoutDetails", "Cart", routeValues: null, htmlAttributes: new { id = "viewCartLink" })</li>
+    <li>@Html.ActionLink("Checkout", "CheckoutDetails", "Cart", routeValues: null, htmlAttributes: new { id = "viewCartLink" })</li>     
+}
+
+

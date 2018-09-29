@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e56e04fa7b324b7db5882f433db8f88c" Name="Diagram1">
+        <EntityTypeShape EntityType="FashioNEXDBModel.Address" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.BRAND" Width="1.5" PointX="13.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.CART_PAYMENT_DETAILS" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.Category_Master" Width="1.5" PointX="13.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.ORDERDETAIL" Width="1.5" PointX="15.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.ORDER" Width="1.5" PointX="13.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.ORDERS_HISTORY" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.PAYMENT" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.PAYMENT_TYPE" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.Product_Category_BRANDS" Width="1.5" PointX="15.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.PRODUCT" Width="1.5" PointX="13.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.Role" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.Segment_Master" Width="1.5" PointX="11.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.SHIPPER" Width="1.5" PointX="9" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.SHIPPING_TRACKING_DETAILS" Width="1.5" PointX="11.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.ShoppingCart" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.ShoppingCart_Item" Width="1.5" PointX="18.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.UserAddress" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.User" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FashioNEXDBModel.PRODUCTFEEDBACK" Width="1.5" PointX="15.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_UserAddress_Address_AddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_PRODUCT_CATEGORY_BRAND_BrandId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_CartPaymentDetails_Payement_PaymentId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_CartPaymentDetails_ShoppingCart_CartId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_CategoryMaster_SegementMaster_SegamentID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_PRODUCT_CATEGORY_BRAND_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.Fk_ORDERDETAILS_ORDERS_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.Fk_ORDERDETAILS_ORDERS_Products_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_ORDERS_Payement_PaymentId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_ORDERSHISTORY_ORDERS_ORDERID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_SHIPPING_TRACKING_DETAILS_ORDERS_SHIPPING_TRACKINGID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_ORDERS_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_Payement_PaymentType_PaymentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_Payement_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_PRODUCT_CATEGORY_BRAND_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_PRODUCTFEEDBACK_PRODUCT_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_ProductMaster_ShoppingCartItem_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_SHIPPING_TRACKING_DETAILS_SHIPPERS_SHIPPERID" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_ShoppingCart_ShoppingCartItem_Cart_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.FK_UserAddress_Users_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FashioNEXDBModel.UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

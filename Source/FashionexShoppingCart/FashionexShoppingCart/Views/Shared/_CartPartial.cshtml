@@ -1,0 +1,16 @@
+﻿@{
+    var cartCount = 0;
+}
+@if (Request.IsAuthenticated)
+{
+    <li><a href="#">Shopping Cart(@cartCount)</a></li>
+    <li><a href="#">Checkout</a></li>
+    <li><a href="#">Order History</a></li>
+}
+else
+{
+    <li><a href="#">Shopping Cart(@cartCount)</a></li>
+    <li><a href="#">Checkout</a></li>    
+}
+
+

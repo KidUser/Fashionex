@@ -1,0 +1,148 @@
+﻿@model CrossoverShoppingCart.Models.PaymentViewModels 
+@{
+    ViewBag.Title = "Proceed Payment";
+    var pageLocHome = "Cart/Index/";
+    var pageLocCheck = "Cart/CheckoutDetails/";
+}
+
+<div class="jumbotron">
+    <h1>Crossover E-commerce</h1>
+    <p class="lead">The ways you mean, the ways we have.</p>
+    <p>
+        <a href="~/@pageLocCheck" class="btn btn-primary btn-large">Back To Cart &raquo;</a>
+        <a href="~/@pageLocHome" class="btn btn-primary btn-large">Continue Shopping &raquo;</a>
+    </p>
+</div>
+
+<div class="row">
+   
+    <div class="col-md-6">
+        <table class="table">
+            <tr>
+                <th>
+                    Product
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                   Unit Price
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Price
+                </th>                
+            </tr>            
+            @foreach (var item in Model.cartDetailModel)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        =
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>                   
+                </tr>
+            }
+            <tr>
+                <th>
+                    -------
+                </th>
+                <th>
+                    -------
+                </th>
+                <th>
+                    Total Amount
+                </th>
+                <th>
+                    =
+                </th>
+                <th>
+                    $ @Model.PaymentAmount
+                </th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
+        <div class="col-md-6">
+            @using (Html.BeginForm("ProceedPayment", "Cart", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true,"Correct the errors!")
+                <div class="form-horizontal">
+                    <h3>Enter Card Details & Address</h3>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CardNumber, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.CardNumber)
+                            @Html.ValidationMessageFor(model => model.CardNumber)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NameOnCard, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NameOnCard)
+                            @Html.ValidationMessageFor(model => model.NameOnCard)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CardTypeCode, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CardTypeCode)
+                            @Html.ValidationMessageFor(model => model.CardTypeCode)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CardExpiryDate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CardExpiryDate)
+                            @Html.ValidationMessageFor(model => model.CardExpiryDate)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DeliveryAddress, new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DeliveryAddress)
+                            @Html.ValidationMessageFor(model => model.DeliveryAddress)
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BillingAddress, new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BillingAddress)
+                            @Html.ValidationMessageFor(model => model.BillingAddress)
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Pay" class="btn btn-primary btn-success" />
+                            <a href="~/@pageLocHome" class="btn btn-primary btn-default">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
